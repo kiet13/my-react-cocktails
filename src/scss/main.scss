@@ -1,0 +1,68 @@
+@import "variables";
+@import "mixins";
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;800;900&display=swap');
+
+
+html {
+  font-size: 62.5%; // 10px
+
+  @include respond(tab-land) {
+    font-size: 56.25%; // 9px
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 8px
+  }
+
+  @include respond(phone) {
+    font-size: 50%; // 6px
+  }
+
+  @include respond(big-desktop) {
+    font-size: 100%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  color: $clr-grey-1;
+  background-color: $clr-grey-10;
+}
+
+a {
+  text-decoration: none;
+  font: inherit;
+}
+
+@for $i from 1 to 10 {
+  .mt-#{$i} {
+    margin-top: #{$i}rem;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+  .my-#{$i} {
+    margin: #{$i}rem;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}rem;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}rem;
+  }
+}
+
+.top-left {
+  @include absTopLeft;
+}
+
+.center {
+  @include absCenter;
+}

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import CocktailBuilder from './containers/CocktailBuilder';
+import CocktailContainer from './containers/CocktailContainer';
 
 function App() {
   return (
     <Router>
-      <CocktailBuilder />
+      <CocktailContainer />
     </Router>
   );
 }

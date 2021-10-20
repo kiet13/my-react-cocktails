@@ -1,0 +1,34 @@
+@import "../../scss/variables";
+
+.Navigation { 
+  width: 100%;
+  height: 8rem;
+  display: grid;
+  place-items: center;
+  border-bottom: .2rem solid $clr-primary-1;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,0.6);
+  background-color: $clr-white;
+
+  nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  img {
+    width: 25rem;
+  }
+
+  a {
+    color: $clr-primary-1;
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+    font-weight: 700;
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+}
