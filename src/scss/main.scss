@@ -41,6 +41,16 @@ a {
   font: inherit;
 }
 
+input[type="text"] {
+  border: none;
+  outline: none;
+  border-radius: .3rem;
+  background-color: $clr-grey-10;
+  font: inherit;
+  font-size: 1.8rem;
+  padding: .8rem 1.6rem;
+}
+
 @for $i from 1 to 10 {
   .mt-#{$i} {
     margin-top: #{$i}rem;

@@ -1,0 +1,26 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.SearchForm {
+  width: 70rem;
+  margin: auto;
+  margin-top: 8rem;
+  background-color: $clr-white;
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem 4rem;
+
+  @include respond(phone) {
+    width: 90%;
+  }
+}
+
+.SearchTitle {
+  color: $clr-primary-4;
+  letter-spacing: .2rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
