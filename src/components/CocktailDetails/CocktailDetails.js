@@ -1,7 +1,7 @@
 import React, {useEffect, useCallback, useState} from 'react'
 import axios from '../../axios-order';
 import styles from './CocktailDetails.module.scss';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 
 function capitalize(string) {
@@ -55,7 +55,7 @@ export default function CocktailDetails() {
     const ingredientArr = details.ingredients.map(ig => {
       return <Button key={ig}>{ig}</Button>;
     });
-    
+
     const infoList = Object.keys(details).reduce((prevArr, dtKey) => {
       if (dtKey !== "img") {
         prevArr.push((
