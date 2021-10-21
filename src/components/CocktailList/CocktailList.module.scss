@@ -1,0 +1,18 @@
+@import "../../scss/variables";
+
+.CocktailList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5rem;
+  padding: 5rem;
+}
+
+.CocktailsHeading {
+  color: $clr-primary-1;
+  font-weight: 800;
+  letter-spacing: .2rem;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 5rem;
+  width: 100%;
+}
