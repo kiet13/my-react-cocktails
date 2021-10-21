@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Navigation.module.scss'
+import logo from '../../logo-nav.svg'
+
 export default function Navigation() {
   return (
     <div className={styles.Navigation}>
       <nav>
         <Link to="/">
-          <img src="logo-nav.svg" alt="logo-nav" />
+          <img src={logo} alt="logo-nav" />
         </Link>
 
         <div>
