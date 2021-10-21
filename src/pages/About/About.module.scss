@@ -1,0 +1,29 @@
+@import "../../scss/mixins";
+
+.About {
+  width: 60%;
+  margin: auto;
+  margin-top: 8rem;
+
+  letter-spacing: .2rem;
+
+  h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  
+  p {
+    font-size: 2.4rem;
+    text-align: justify;
+  }
+
+  @include respond(tab-port) {
+    width: 80%;
+  }
+
+  @include respond(phone) {
+    width: 90%;
+  }
+}

@@ -4,6 +4,9 @@ import styles from './CocktailContainer.module.scss'
 import Navigation from '../components/Navigation/Navigation';
 import SearchForm from '../components/SearchForm/SearchForm';
 import CocktailList from '../components/CocktailList/CocktailList';
+import About from '../pages/About/About';
+import { Switch, Route } from 'react-router-dom'
+
 
 export default function CocktailContainer() {
   const [cocktailList, setCocktailList] = useState([]);
@@ -55,8 +58,17 @@ export default function CocktailContainer() {
   return (
     <div className={styles.CocktailContainer}>
         <Navigation />
-        <SearchForm changed={onTermChange}/>
-        {cocktails}
+        <Switch>
+          <Route exact path="/">
+            <SearchForm changed={onTermChange}/>
+            {cocktails}
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
+
+        
     </div>
     
   )
