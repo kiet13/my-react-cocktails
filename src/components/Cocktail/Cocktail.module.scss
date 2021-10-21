@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .Cocktail {
   display: flex;
@@ -11,6 +12,10 @@
   background-color: $clr-white;
   border-radius: .5rem;
   box-shadow: $dark-shadow;
+
+  @include respond(tab-port) {
+    height: 60rem;
+  }
 
   img {
     width: 100%;
@@ -25,3 +30,17 @@
     border-bottom-right-radius: .5rem;
   }
 }
+
+
+.Name {
+  @include respond(tab-port) {
+    font-size: 3.8rem;
+  }
+}
+
+.Glass {
+  @include respond(tab-port) {
+    font-size: 2.4rem;
+  }
+}
+

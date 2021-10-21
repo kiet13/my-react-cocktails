@@ -8,8 +8,8 @@ export default function Cocktail({ item }) {
     <div className={styles.Cocktail}>
       <img src={img} alt="cocktail glass" />
       <div>
-        <h1 className="mb-1">{name}</h1>
-        <p>{glass}</p>
+        <h1 className={[styles.Name, "mb-1"].join(' ')}>{name}</h1>
+        <p className={styles.Glass}>{glass}</p>
       </div>
       <Button width="100%">Details</Button>
     </div>

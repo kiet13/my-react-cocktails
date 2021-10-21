@@ -1,10 +1,25 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .CocktailList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5rem;
+  grid-gap: 8rem 5rem;
   padding: 5rem;
+
+  @include respond(tab-land) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8rem;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 8rem;
+  }
 }
 
 .CocktailsHeading {

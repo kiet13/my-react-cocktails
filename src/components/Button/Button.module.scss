@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .Button {
   border: none;
@@ -13,6 +14,9 @@
   padding: 1rem 2rem;
   cursor: pointer;
 
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
 
   &:hover {
     background-color: $clr-primary-6;
