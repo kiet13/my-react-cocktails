@@ -17,16 +17,14 @@ export default function CocktailContainer() {
         const newCocktailList = drinks.map(item => {
           const {
             idDrink,
-            strAlcoholic,
-            strCategory,
+            strDrink,
             strDrinkThumb,
             strGlass,
           } = item;
 
           return {
             id: idDrink,
-            alcoholic: strAlcoholic,
-            category: strCategory,
+            name: strDrink,
             img: strDrinkThumb,
             glass: strGlass
           };
@@ -58,7 +56,7 @@ export default function CocktailContainer() {
     <div className={styles.CocktailContainer}>
         <Navigation />
         <SearchForm changed={onTermChange}/>
-        {/* {cocktails} */}
+        {cocktails}
     </div>
     
   )
