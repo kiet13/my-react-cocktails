@@ -5,13 +5,14 @@
   outline: none;
   font: inherit;
   font-size: 2rem;
-  font-weight: 700;
   color: $clr-white;
   background-color: $clr-primary-4;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: .2rem;
   transition: all .4s;
   padding: 1rem 2rem;
+  cursor: pointer;
+
 
   &:hover {
     background-color: $clr-primary-6;
