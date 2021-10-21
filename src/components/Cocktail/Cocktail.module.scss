@@ -28,6 +28,10 @@
   button {
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
+    
+    @include respond(tab-port) {
+      font-size: 3rem;
+    }
   }
 
   a {
