@@ -4,17 +4,27 @@ import styles from './CocktailContainer.module.scss'
 import Navigation from '../components/Navigation/Navigation';
 import SearchForm from '../components/SearchForm/SearchForm';
 import CocktailList from '../components/CocktailList/CocktailList';
+import CocktailDetails from '../components/CocktailDetails/CocktailDetails';
+import Loader from '../components/Loader/Loader';
 import About from '../pages/About/About';
-import { Switch, Route } from 'react-router-dom'
+import handleError from '../error-handler';
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 
 export default function CocktailContainer() {
   const [cocktailList, setCocktailList] = useState([]);
   const [term, setTerm] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({status: false, msg: "", type: ""});
+  const [loading, setLoading] = useState(false);
+
   const fetchItems = useCallback(async () => {
+    setLoading(true);
     try {
-      const response = await axios.get(`/search.php?s=${term}`);
+      const [response, responseError] = await handleError(axios.get(`/search.php?s=${term}`));
+      if (responseError) {
+        throw new Error("Cannot fetch data");
+      }
+
       const { drinks } = response.data;
       if (drinks) {
         const newCocktailList = drinks.map(item => {
@@ -34,12 +44,13 @@ export default function CocktailContainer() {
         })
 
         setCocktailList(newCocktailList);
-        setError(false);
+        setError({status: false, msg: "", type: ""});
       }
-    } catch {
-      setError(true);
+    } catch(e) {
+      console.log(e);
+      setError({status: true, msg: e.message, type: e.name});
     }
-    
+    setLoading(false);
   }, [term]);
 
   useEffect(() => {
@@ -50,9 +61,16 @@ export default function CocktailContainer() {
     setTerm(event.target.value);
   }
 
-  let cocktails = <p>Not found!</p>;
-  if (!error) {
-    cocktails = <CocktailList cocktails={cocktailList} />
+  let cocktails = null;
+
+  if (loading) {
+    cocktails = <Loader />;
+  }
+
+  if (error.status) {
+    cocktails = <p>{error.msg}</p>
+  } else {
+    cocktails = <CocktailList cocktails={cocktailList} />;
   }
 
   return (
@@ -63,13 +81,16 @@ export default function CocktailContainer() {
             <SearchForm changed={onTermChange}/>
             {cocktails}
           </Route>
+          <Route path="/home">
+            <Redirect to="/" />
+          </Route>
           <Route path="/about">
             <About />
           </Route>
+          <Route path="/cocktail/:id">
+            <CocktailDetails />
+          </Route>
         </Switch>
-
-        
     </div>
-    
   )
 }

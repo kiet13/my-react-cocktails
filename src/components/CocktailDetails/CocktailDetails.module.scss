@@ -15,6 +15,7 @@
   button {
     border-radius: .5rem;
     padding: 0.5rem;
+    margin: 0.5rem 0;
     
     &:not(:last-child) {
       margin-right: 2rem;
@@ -24,17 +25,17 @@
 
 .CocktailDetails {
   width: 80%;
-  height: 30rem;
+  min-height: 30rem;
   display: flex;
-  align-items: center;
 
   @include respond(tab-port) {
     flex-direction: column;
+    align-items: center;
     height: auto;
   }
 
   img {
-    height: 100%;
+    height: 30rem;
     width: auto;
 
     @include respond(tab-port) {
@@ -48,13 +49,16 @@
   }
 }
 
+.InfoItem:not(:last-child) {
+  margin-bottom: 1rem;
+}
 
 
 .CocktailInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  // height: 100%;
   margin-left: 5rem;
   span {
     letter-spacing: .1rem;
@@ -63,7 +67,7 @@
 
   @include respond(tab-port) {
     width: 80%;
-    height: 30rem;
+    // height: 30rem;
     margin-left: 0;
     margin-top: 5rem;
   }
