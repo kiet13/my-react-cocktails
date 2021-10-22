@@ -7,6 +7,7 @@ import CocktailList from '../components/CocktailList/CocktailList';
 import CocktailDetails from '../components/CocktailDetails/CocktailDetails';
 import Loader from '../components/Loader/Loader';
 import About from '../pages/About/About';
+import NotFound from '../pages/NotFound/NotFound';
 import handleError from '../error-handler';
 import { Switch, Route, Redirect } from 'react-router-dom'
 
@@ -89,6 +90,12 @@ export default function CocktailContainer() {
           </Route>
           <Route path="/cocktail/:id">
             <CocktailDetails />
+          </Route>
+          <Route path="/404">
+            <NotFound />
+          </Route>
+          <Route path="*">
+            <Redirect to="/404" />
           </Route>
         </Switch>
     </div>
